@@ -14,7 +14,7 @@ from .serializers import EmployeeSerializer, CompensationInfoSerializer, Contact
 @csrf_exempt
 def employee_Api(request, id=0):
     if request.method == 'GET':
-        Employees = Employee1.objects.filter(id)
+        Employees = Employee1.objects.all()
         employee_table_serializer = EmployeeSerializer(Employees, many=True)
         return JsonResponse(employee_table_serializer.data, safe=False)
     elif request.method == 'POST':
